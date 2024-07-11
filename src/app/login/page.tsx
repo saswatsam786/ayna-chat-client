@@ -47,7 +47,7 @@ const Login = (props: Props) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:1337/api/auth/local", {
+      const response = await axios.post("https://ayna-strapi-backend-zo3y.onrender.com/api/auth/local", {
         identifier: email,
         password: password,
       });

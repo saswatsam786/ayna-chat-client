@@ -28,11 +28,14 @@ export function Sidebar({ links, isCollapsed, isMobile }: SidebarProps) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:1337/api/users?populate=messages.sender,messages.receiver", {
-          headers: {
-            Authorization: `Bearer f2675a8af30c641c0b4e9be626fccf67a5b85a85f350d89419420a5e98e3d90e8c32630fe2c329d192a4ef9a890a4aef4c13f67ee9937d00408c0e523ac6df03cb7a9a076d0ecb3ded61c84a4f4dd48678d3e0c4b812f480064e7fe749cb8191f3a355f53476f99ae07ac0577ec309c4fd3d6aaa0038effb94f33ad525028a34`,
-          },
-        });
+        const response = await axios.get(
+          "https://ayna-strapi-backend-zo3y.onrender.com/api/users?populate=messages.sender,messages.receiver",
+          {
+            headers: {
+              Authorization: `Bearer f2675a8af30c641c0b4e9be626fccf67a5b85a85f350d89419420a5e98e3d90e8c32630fe2c329d192a4ef9a890a4aef4c13f67ee9937d00408c0e523ac6df03cb7a9a076d0ecb3ded61c84a4f4dd48678d3e0c4b812f480064e7fe749cb8191f3a355f53476f99ae07ac0577ec309c4fd3d6aaa0038effb94f33ad525028a34`,
+            },
+          }
+        );
 
         const fetchedUsers: User[] = response.data;
         const localUser = await getUserFromLocalCookie();

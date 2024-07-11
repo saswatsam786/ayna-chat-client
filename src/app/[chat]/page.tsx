@@ -46,7 +46,7 @@ export default function ChatLayout({ defaultLayout = [320, 480], defaultCollapse
       if (chat) {
         try {
           const response = await axios.get(
-            `http://localhost:1337/api/users/${chat}?populate=sentMessages,sentMessages.sender,receivedMessages,receivedMessages.receiver`,
+            `https://ayna-strapi-backend-zo3y.onrender.com/api/users/${chat}?populate=sentMessages,sentMessages.sender,receivedMessages,receivedMessages.receiver`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export default function ChatLayout({ defaultLayout = [320, 480], defaultCollapse
           }
 
           const res = await axios.get(
-            `http://localhost:1337/api/users/${loggedUser.id}?populate=sentMessages,sentMessages.sender,receivedMessages,receivedMessages.receiver`,
+            `https://ayna-strapi-backend-zo3y.onrender.com/api/users/${loggedUser.id}?populate=sentMessages,sentMessages.sender,receivedMessages,receivedMessages.receiver`,
             {
               headers: {
                 "Content-Type": "application/json",
