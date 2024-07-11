@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import axios from "axios";
 
-const STRAPI_URL = "https://ayna-strapi-backend-zo3y.onrender.com/api";
+const STRAPI_URL = "http://localhost:1337/api";
 
 interface User {
   id: string;
