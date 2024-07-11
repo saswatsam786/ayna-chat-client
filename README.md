@@ -1,34 +1,12 @@
-[<img src="shadcn-preview.png">](https://shadcn-chat.vercel.app/)
-
-<h1 align="center">shadcn-chat</h1>
-<div align="center">
-
-   [![GitHub Repo stars](https://img.shields.io/github/stars/jakobhoeg/shadcn-chat)](https://github.com/jakobhoeg/shadcn-chat/stargazers)
-   
-</div>
 
 
-<p align="center">Customizable and re-usable chat component for you to use in your projects. Built on top of shadcn.</p>
+<h1 align="center">Ayna Chat Client</h1>
 
-<div align="center">
-
-[Demo](https://shadcn-chat.vercel.app/) • [Preview](#Preview) • [Usage](#Usage) • [Installation](#Installation) • [Tech stack](#Tech-stack)  • [Example Project](https://github.com/jakobhoeg/nextjs-ollama-llm-ui)
-
-</div>
 
 # Preview
 
-https://github.com/jakobhoeg/shadcn-chat/assets/114422072/a934f80f-1662-46f2-83bc-bdca45982ce6
+https://github.com/saswatsam786/ayna-chat-client/assets/77463804/9add1f2d-73b1-48cf-b6d4-56c4a50ddd5c
 
-# Usage
-
-You can use the source code and copy paste components into your NextJS project. 
-
-These components in particular:
-
-```
-/src/app/components/chat/chat-layout.tsx, chat.tsx, chat-topbar.tsx, chat-list.tsx & chat-bottombar.tsx
-```
 
 # Installation
 
@@ -58,6 +36,11 @@ npm install
 npm run dev
 ```
 
+**4. Start the development server:**
+```
+You can use your auth token for getting data from strapi
+```
+
 **5. Go to [localhost](http://localhost:3000) and start playing around!**
 
 # Tech stack
@@ -73,3 +56,5 @@ npm run dev
 [Framer Motion](https://www.framer.com/motion/) - Motion/animation library for React
 
 [Lucide Icons](https://lucide.dev/) - Icon library
+
+[socker-io.client](https://www.npmjs.com/package/socket.io-client) - Socket IO
