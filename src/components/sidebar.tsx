@@ -103,6 +103,7 @@ export function Sidebar({ links, isCollapsed, isMobile }: SidebarProps) {
               key={index}
               href={`/${user.id}`}
               className={cn(
+                // @ts-ignore
                 buttonVariants({ variant: "grey", size: "xl" }),
                 "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink",
                 "justify-start gap-4"

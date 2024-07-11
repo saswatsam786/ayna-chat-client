@@ -41,9 +41,6 @@ export function Chat({ sentMessages, receivedMessages, selectedUser, isMobile }:
   // @ts-ignore
   const [loginUser, setLoginUser] = useState<User>({});
 
-  console.log(sentMessages, "SentMessages");
-  console.log(receivedMessages, "ReceivedMessages");
-
   useEffect(() => {
     async function initializeChat() {
       const data = await getUserFromLocalCookie();
@@ -59,7 +56,6 @@ export function Chat({ sentMessages, receivedMessages, selectedUser, isMobile }:
     initializeChat();
 
     socket.on("chat message", (newMessage: Message) => {
-      console.log(newMessage);
       setMessages((prevMessages) =>
         [...prevMessages, newMessage].sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
       );
@@ -80,8 +76,6 @@ export function Chat({ sentMessages, receivedMessages, selectedUser, isMobile }:
       });
     }
   };
-
-  console.log(messagesState);
 
   return (
     <div className="flex flex-col justify-between w-full h-full">

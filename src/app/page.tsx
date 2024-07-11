@@ -8,11 +8,6 @@ import Link from "next/link";
 export default function Home() {
   const layout = cookies().get("react-resizable-panels:layout");
   const defaultLayout = layout ? JSON.parse(layout.value) : undefined;
-  if (!Cookies.get("id")) {
-    // useRouter().push("/login");
-    redirect("/login");
-    return null; // Prevent rendering further if not logged in
-  }
 
   return (
     <main className="flex h-[calc(100dvh)] flex-col items-center justify-center p-4 md:px-24 py-32 gap-4">

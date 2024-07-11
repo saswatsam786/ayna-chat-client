@@ -63,9 +63,8 @@ export default function ChatBottombar({ sendMessage, loggedUser, isMobile }: Cha
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const onDrop = useCallback(
-    (acceptedFiles) => {
+    (acceptedFiles: any) => {
       // Handle file drop
-      console.log(acceptedFiles);
       if (acceptedFiles.length > 0) {
         const file = acceptedFiles[0];
         if (file.type.startsWith("image")) {
@@ -186,10 +185,11 @@ export default function ChatBottombar({ sendMessage, loggedUser, isMobile }: Cha
     try {
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("upload_preset", "ml_default"); // Replace with your Cloudinary upload preset
-      console.log(process.env.CLOUDINARY_API_KEY);
+      formData.append("upload_preset", "aiaufdub");
+      // Replace with your Cloudinary upload preset
+      formData.append("cloud_name", "dup8y2zdi");
       const response = await axios.post(
-        `https://api.cloudinary.com:/v1_1/${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}@dup8y2zdi`, // Replace with your Cloudinary cloud name
+        `https://api.cloudinary.com:/v1_1/dup8y2zdi/image/upload`, // Replace with your Cloudinary cloud name
         formData,
         {
           headers: {

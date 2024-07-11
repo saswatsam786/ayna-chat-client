@@ -51,12 +51,12 @@ const Login = (props: Props) => {
         identifier: email,
         password: password,
       });
-      console.log("Form submitted", response.data);
 
       setToken(response.data, router);
+      router.push("/");
+      return;
     } catch (error) {
       console.error("Error submitting form", error);
-      // Handle error accordingly (e.g., show error message)
     }
   };
 

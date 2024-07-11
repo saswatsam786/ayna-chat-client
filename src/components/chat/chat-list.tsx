@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import ChatBottombar from "./chat-bottombar";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 interface User {
   id: string;
@@ -46,6 +47,16 @@ export const ChatList: React.FC<ChatListProps> = ({ messages, selectedUser, send
     }
   }, [messages]);
 
+  const sanitizeImageUrl = (content: any) => {
+    const urlPattern = /(https?:\/\/[^\s]+(\.jpg|\.jpeg|\.png|\.gif|\.bmp|\.webp))/i;
+    const match = content.match(urlPattern);
+    return match ? match[0] : content;
+  };
+
+  const isImageUrl = (url: any) => {
+    return /\.(jpg|jpeg|png|gif|bmp|webp)$/i.test(url);
+  };
+
   return (
     <div className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col">
       <div ref={messagesContainerRef} className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col">
@@ -86,7 +97,17 @@ export const ChatList: React.FC<ChatListProps> = ({ messages, selectedUser, send
                     "self-start": message.sender?.id !== loggedUser.id, // Aligns message to left for other users
                   })}
                 >
-                  {message.content}
+                  {isImageUrl(sanitizeImageUrl(message.content)) ? (
+                    <Image
+                      src={sanitizeImageUrl(message.content)}
+                      alt="User sent image"
+                      width={50}
+                      height={60}
+                      className="max-w-full h-auto"
+                    />
+                  ) : (
+                    message.content
+                  )}
                 </span>
                 {message.sender?.id === loggedUser.id && (
                   <Avatar className="flex justify-center items-center">

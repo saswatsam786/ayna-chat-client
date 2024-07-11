@@ -10,26 +10,15 @@ import { Chat } from "@/components/chat/chat";
 import axios from "axios";
 import Link from "next/link";
 import { getUserFromLocalCookie } from "@/lib/auth";
-import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 
-interface ChatLayoutProps {
-  defaultLayout: number[] | undefined;
-  defaultCollapsed?: boolean;
-  navCollapsedSize: number;
-}
-
-export default function ChatLayout({
-  defaultLayout = [320, 480],
-  defaultCollapsed = false,
-  navCollapsedSize,
-}: ChatLayoutProps) {
+export default function ChatLayout({ defaultLayout = [320, 480], defaultCollapsed = false, navCollapsedSize }: any) {
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
   const [selectedUser, setSelectedUser] = React.useState<any>({});
   const [isMobile, setIsMobile] = useState(false);
   const [loggedUser, setLoggedUser] = useState<any>({});
 
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     const checkScreenWidth = () => {
@@ -42,7 +31,7 @@ export default function ChatLayout({
     // Event listener for screen width changes
     window.addEventListener("resize", checkScreenWidth);
     if (!Cookies.get("id")) {
-      router.push("/login");
+      window.location.href = "/login";
     }
     // Cleanup the event listener on component unmount
     return () => {
@@ -69,7 +58,7 @@ export default function ChatLayout({
           const loggedUser = await getUserFromLocalCookie();
 
           if (!loggedUser) {
-            router.push("/login");
+            window.location.href = "/login";
             return;
           }
 
@@ -83,7 +72,6 @@ export default function ChatLayout({
             }
           );
           setLoggedUser(res.data);
-          console.log(loggedUser);
         } catch (error) {
           console.error("Error fetching user details:", error);
         }
