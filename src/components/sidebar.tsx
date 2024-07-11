@@ -32,7 +32,7 @@ export function Sidebar({ links, isCollapsed, isMobile }: SidebarProps) {
           "https://ayna-strapi-backend-zo3y.onrender.com/api/users?populate=messages.sender,messages.receiver",
           {
             headers: {
-              Authorization: `Bearer f2675a8af30c641c0b4e9be626fccf67a5b85a85f350d89419420a5e98e3d90e8c32630fe2c329d192a4ef9a890a4aef4c13f67ee9937d00408c0e523ac6df03cb7a9a076d0ecb3ded61c84a4f4dd48678d3e0c4b812f480064e7fe749cb8191f3a355f53476f99ae07ac0577ec309c4fd3d6aaa0038effb94f33ad525028a34`,
+              Authorization: `Bearer f50790479fbbb8d527048319756fe68e0c6e8a1eabdac7af62cf842c2153e3b8d571a9c185002889f60ad4856302c242a6c3dd85b01c04beb6ab4c5d80333011a85a7a5c2f67bb91b06de4cd7d92259dc58a888ca349045466ea544413f65d272034631e0c46a0fc0020e4f3242b93c617e9beda2c404e13f7dfa30914e2ef74`,
             },
           }
         );
